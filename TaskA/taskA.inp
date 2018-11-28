@@ -1,0 +1,15 @@
+
+
+!Geometry and Variables
+angstrom
+geometry={
+C
+O   C  r
+}
+r = 1.6
+
+basis=aug-cc-pCVQZ
+
+!method
+hf
+optg
