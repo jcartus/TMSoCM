@@ -10,6 +10,13 @@ r = 1.6
 
 basis=aug-cc-pCVQZ
 
-!method
+!method: on HF level make geom.-optimisation
+!https://www.molpro.net/info/2015.1/doc/quickstart/node27.html:
 hf
 optg
+
+!get virbational frew of CO in groud state 
+!(analytical calculation possible as method is HF)
+!https://www.molpro.net/info/2015.1/doc/quickstart/node28.html
+frequencies,analytical
+
