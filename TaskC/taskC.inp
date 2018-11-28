@@ -4,31 +4,34 @@
 angstrom
 geometry={
 C
-O   C  r(i)
+O   C  r
 }
-r = 1.6
 
-basis=aug-cc-pCVQZ
+!basis=aug-cc-pCVQZ
+basis=cc-pVDZ
 
 !---Scan over radius ---
 !https://www.molpro.net/info/2015.1/doc/manual/node60.html
 Radii = [0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
 
 do i=1,#Radii
+    ! set distance    
+    r = Radii(i)    
+
     !calculate HF and log  
     hf
     E_HF(i) = energy	
 
     ! add correction and log
-    cisd(t)
-    E_CISDT(i) = energy   
+    ccsd(t)
+    E_CCSDT(i) = energy   
 enddo
 !---
 
 
 !Log Result to a table
 
-{table Radii, E_HF, E_CISDT
+{table, Radii, E_HF, E_CCSDT
 save, pes.tab}
 
 
