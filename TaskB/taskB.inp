@@ -10,10 +10,10 @@ r = 1.6
 
 basis=aug-cc-pCVQZ
 
-!method: CISD(T)  
+!method: CCSD(T)  
 !httpss://www.molpro.net/info/2015.1/doc/quickstart/node15.html
 hf
-cisd(t)
+ccsd(t)
 optg
 
 !get virbational frew of CO in groud state 
