@@ -1,0 +1,23 @@
+
+
+!Geometry and Variables
+angstrom
+geometry={
+C
+O   C  r
+}
+r = 1.6
+
+basis=aug-cc-pCVQZ
+
+!method: CISD(T)  
+!httpss://www.molpro.net/info/2015.1/doc/quickstart/node15.html
+hf
+cisd(t)
+optg
+
+!get virbational frew of CO in groud state 
+!(analytical calculation not possible anymore)
+!https://www.molpro.net/info/2015.1/doc/quickstart/node28.html
+frequencies,symm=auto
+
