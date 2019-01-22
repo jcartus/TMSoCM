@@ -8,7 +8,7 @@ O   C  r
 }
 r = 1.6
 
-basis=cc-pVDZ
+basis=aug-cc-pVQZ
 
 !method: CCSD(T)  
 !httpss://www.molpro.net/info/2015.1/doc/quickstart/node15.html
