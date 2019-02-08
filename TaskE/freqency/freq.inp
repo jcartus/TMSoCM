@@ -1,0 +1,32 @@
+***, CO+ frequency calculation
+
+!Geometry and Variables
+angstrom
+geometry={
+C
+O   C  r
+}
+r = 1.6
+
+! remove an electron to yield CO+
+!http://www.molpro.net/info/2010.1/doc/quickstart/node11.html
+! charge ... net charge of molecule. -> +1
+! symmetry ... ??
+! spin ... total Spin. -> 1 (1 unpared electron, i.e. doublet)
+wf,charge=1,symmetry=3,spin=1
+
+
+!basis=aug-cc-pCVQZ
+basis=cc-pVDZ
+
+!method: CCSD(T)  
+!httpss://www.molpro.net/info/2015.1/doc/quickstart/node15.html
+hf
+uccsd(t)
+optg
+
+!get virbational frew of CO in groud state 
+!(analytical calculation not possible anymore)
+!https://www.molpro.net/info/2015.1/doc/quickstart/node28.html
+frequencies,symm=auto
+
