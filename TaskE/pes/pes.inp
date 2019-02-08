@@ -1,0 +1,50 @@
+*** Scan over distance
+
+! Memory 50 mega words (50 Mwords = 1 GB)
+memory, 50, m
+
+!Geometry and Variables
+angstrom
+geometry={
+C
+O   C  r
+}
+
+basis=aug-cc-pCVQZ
+!basis=cc-pVDZ
+
+! remove an electron to yield CO+
+!http://www.molpro.net/info/2010.1/doc/quickstart/node11.html
+! charge ... net charge of molecule. -> +1
+! symmetry ... ??
+! spin ... total Spin. -> 1 (1 unpared electron, i.e. doublet)
+wf,charge=1,symmetry=3,spin=1
+
+!---Scan over radius ---
+!https://www.molpro.net/info/2015.1/doc/manual/node60.html
+Radii = [0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
+
+do i=1,#Radii
+    ! set distance    
+    r = Radii(i)    
+
+    !calculate HF and log  
+    hf
+    E_HF(i) = energy	
+
+    ! add correction (unrestricted) and log
+    uccsd(t)
+    E_CCSDT(i) = energy   
+enddo
+!---
+
+
+!Log Result to a table
+
+{table, Radii, E_HF, E_CCSDT
+save, pes.tab}
+
+
+
+
+
