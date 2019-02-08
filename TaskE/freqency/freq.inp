@@ -19,8 +19,8 @@ wf,charge=1,symmetry=3,spin=1
 !basis=aug-cc-pCVQZ
 basis=cc-pVDZ
 
-!method: CCSD(T)  
-!httpss://www.molpro.net/info/2015.1/doc/quickstart/node15.html
+!method: UCCSD(T), unrestricted!
+!https://www.theochem.ru.nl/molpro/molpro2006.1/doc/quickstart/node14.html
 hf
 uccsd(t)
 optg
