@@ -1,5 +1,9 @@
 ***, CO+ frequency calculation
 
+!Memory: 20 mega words
+! https://www.molpro.net/info/2015.1/doc/manual/node32.html
+memory, 20, M
+
 !Geometry and Variables
 angstrom
 geometry={
@@ -16,8 +20,8 @@ r = 1.6
 wf,charge=1,symmetry=3,spin=1
 
 
-!basis=aug-cc-pCVQZ
-basis=cc-pVDZ
+basis=aug-cc-pCVQZ
+!basis=cc-pVDZ
 
 !method: UCCSD(T), unrestricted!
 !https://www.theochem.ru.nl/molpro/molpro2006.1/doc/quickstart/node14.html
