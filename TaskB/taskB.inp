@@ -1,4 +1,4 @@
-gprint,orbital
+gprint,orbitals
 
 !Geometry and Variables
 angstrom
@@ -10,11 +10,15 @@ r = 1.6
 
 basis=aug-cc-pVQZ
 
+! optimieren auf hf level
+hf
+optg
+
+! Energies in hf and ccsd(t) level
 !method: CCSD(T)  
 !httpss://www.molpro.net/info/2015.1/doc/quickstart/node15.html
 hf
 ccsd(t)
-optg
 
 !get virbational frew of CO in groud state 
 !(analytical calculation not possible anymore)
