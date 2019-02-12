@@ -1,0 +1,135 @@
+***, CO+, first 5 electronically excited states
+
+!Memory: 20 mega words
+! https://www.molpro.net/info/2015.1/doc/manual/node32.html
+memory, 50, M
+gprint, orbitals
+
+!Geometry and Variables
+angstrom
+geometry={
+C
+O   C  r
+}
+
+
+
+
+
+basis=aug-cc-pCVQZ
+!basis=cc-pVDZ
+
+
+
+
+
+!*************************************************
+! scan over pes
+!*************************************************
+Radii = [0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6]
+
+do i=1,#Radii
+    ! set distance    
+    r = Radii(i)
+
+!do hf as reference
+hf
+
+!#######################################
+! CASSCF 
+!#######################################
+!-------------------------------
+!Do CASSCF in symmetry 1
+{multi;
+occ, 6, 2, 2, 0
+closed, 2, 0, 0, 0
+wf,13,1,1,
+state,3
+}
+
+!log
+E_CASSCF_1_1(i) = energy(1)
+E_CASSCF_2_1(i) = energy(2)
+E_CASSCF_3_1(i) = energy(3)
+
+
+!-------------------------------
+!Do CASSCF in symmtry 2
+{multi;
+occ, 6, 2, 2, 0
+closed, 2, 0, 0, 0
+wf,13,2,1,
+state,2 
+}
+E_CASSCF_1_2(i) = energy(1)
+E_CASSCF_2_2(i) = energy(2)
+
+
+
+!-----------------------------
+!Do CASSCF in symmtry 3
+{multi;
+occ, 6, 2, 2, 0
+closed, 2, 0, 0, 0
+wf,13,3,1,
+state,2
+}
+E_CASSCF_1_3(i) = energy(1)
+E_CASSCF_2_3(i) = energy(2)
+
+
+!#######################################
+! MRCI 
+!#######################################
+
+!-----------------------------
+!Do MRCI in symmtry 1
+{mrci,
+wf,13,1,1,
+state,3
+}
+E_MRCI_1_1(i) = energy(1)
+E_MRCI_2_1(i) = energy(2)
+E_MRCI_3_1(i) = energy(3)
+
+
+
+
+!-----------------------------
+!Do MRCI in symmtry 2
+{mrci,
+wf,13,2,1,
+state,1
+}
+E_MRCI_1_2(i) = energy(1)
+
+
+
+!-----------------------------
+!Do MRCI in symmtry 3
+{mrci,
+wf,13,3,1,
+state,1
+}
+E_MRCI_1_3(i) = energy(1)
+
+
+enddo
+
+
+
+!Log CASSCF results
+{table, Radii, E_CASSCF_1_1, E_CASSCF_2_1, E_CASSCF_3_1, E_CASSCF_1_2, E_CASSCF_2_2, E_CASSCF_1_3, E_CASSCF_2_3
+
+save, pes_CASSCF.tab	
+}
+
+!Log MRCI results
+{table, Radii, E_MRCI_1_1, E_MRCI_2_1, E_MRCI_3_1, E_MRCI_1_2, E_MRCI_1_3
+
+save, pes_MRCI.tab	
+}
+
+
+
+

@@ -18,7 +18,7 @@ r = 1.3
 
 
 !basis=aug-cc-pCVQZ
-basis=cc-pVDZ
+basis=cc-pVTZ
 
 
 ! single point
@@ -26,49 +26,52 @@ basis=cc-pVDZ
 wf,13,1,1}
 optg
 
+! 2. rechnung
+hf
+orbprint, 5
 
-! calculate 5 excited states (lowest by default)
-! https://www.molpro.net/info/2015.1/doc/manual/node324.html
-!states, 5 ! Glaube, dass ist nicht das ziel.
-
-
-! guess from hf, dann casscf
-!hf
+! Ein bisschen probieren zeigt: die niedrigsten 5 sind: 
+! 1.1, 
+! 1.2 & 1.3 (entartet), 
+! 2.1, 3.1
+! daher werden fuer symmetrie 1 3 states berchnet und fuer 2 und 3 je einer.
 {multi;
 occ, 6, 2, 2, 0
-closed, 4, 0, 0, 0
+closed, 2, 0, 0, 0
 wf,13,1,1,
 state,3
 wf,13,2,1,
-state,2
+state,2 
 wf,13,3,1,
 state,2
-!wf,13,4,1,
-!state,1
 }
 
+
+! Gleichen states verfeirenern mit mrci
 {mrci,
-occ, 6, 2, 2, 0
-closed, 4, 0, 0, 0
+!occ, 6, 2, 2, 0
+!closed, 2, 0, 0, 0
+
 wf,13,1,1,
 state,3
-!nstati,3
 }
 
 {mrci,
-occ, 6, 2, 2, 0
-closed, 4, 0, 0, 0
+!occ, 6, 2, 2, 0
+!closed, 2, 0, 0, 0
+
 wf,13,2,1,
-state,2
-!nstati,2
+state,1
+!nstati,1
 }
 
 {mrci,
-occ, 6, 2, 2, 0
-closed, 4, 0, 0, 0
+!occ, 6, 2, 2, 0
+!closed, 2, 0, 0, 0
+
 wf,13,3,1,
-state,2
-!nstati,2
+state,1
+!nstati,
 }
 
 
