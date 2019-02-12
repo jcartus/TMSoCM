@@ -1,0 +1,1491 @@
+<?xml version="1.0"?>
+<molpro xmlns="http://www.molpro.net/schema/molpro-output"
+  xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+  xmlns:cml="http://www.xml-cml.org/schema"
+  xmlns:stm="http://www.xml-cml.org/schema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+ <!--
+
+ Primary working directories    : /tmp/jcartus
+ Secondary working directories  : /tmp/jcartus
+ Wavefunction directory         : /home/jcartus/wfu/
+ Main file repository           : /tmp/jcartus/
+
+ SHA1      : 960ce83de8be0427555cf121dea4debc26c720b5
+ NAME      : 2012.1.960ce83
+ ARCHNAME  : Linux/x86_64
+ FC        : /opt/intel/composer_xe_2013_sp1.2.144/bin/intel64/ifort
+ FCVERSION : 14.0.2
+ BLASLIB   : -Wl,-_start-group /opt/intel/mkl/lib/intel64/libmkl_intel_ilp64.a /opt/intel/mkl/lib/intel64/libmkl_sequential.a /opt/intel/mkl/lib/intel64/libmkl_core.a -Wl,-_end-group
+ id        : tugraziep
+
+ Nodes     nprocs
+ qciep        1
+
+ Using customized tuning parameters: mindgm=7; mindgv=24; mindgc=1; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+ --><job>
+  <!--
+ ***,CO+, first 5 electronically excited states
+ 
+                                                                 ! 1 freies Elektron, alle Orbitale bis incl. 1Pi sind eingefroren.
+                                                                                 ! Active space bis orbitale die aus 3d gebaut sind
+                                                  ! Nur um grob zu sehen in welchen Symmetrien die angeregten zustände sein werden
+ 
+ 
+                                                                                 !Memory: 20 mega words
+                                                                        ! https://www.molpro.net/info/2015.1/doc/manual/node32.html
+ memory, 50, M
+ gprint, orbitals
+ 
+                                                                                 !Geometry and Variables
+ angstrom
+ geometry={
+ C
+ O   C  r
+ }
+ r = 1.3
+ 
+ 
+ 
+ 
+ 
+                                                                                 !basis=aug-cc-pCVQZ
+ basis=cc-pVDZ
+ 
+ 
+                                                                                 ! single point
+ {hf
+ wf,13,1,1}
+ optg
+ 
+ 
+                                                                                 ! calculate 5 excited states (lowest by default)
+                                                                       ! https://www.molpro.net/info/2015.1/doc/manual/node324.html
+                                                                                 !states, 5 ! Glaube, dass ist nicht das ziel.
+ 
+ 
+                                                                                 ! guess from hf, dann casscf
+                                                                                 !hf
+ {multi;
+ occ, 14, 6, 6, 2
+ closed, 4, 1, 1, 0                                                              ! alle 4 sigma, und 1 pi sind closed
+ wf,13,1,1,
+ state,5
+ wf,13,2,1,
+ state,5
+ wf,13,3,1,
+ state,5
+ wf,13,4,1,
+ state,2
+ }
+ 
+ 
+
+ Variables initialized (778), CPU time= 0.01 sec
+ Commands  initialized (547), CPU time= 0.01 sec, 516 directives.
+ Default parameters read. Elapsed time= 0.06 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                         Copyright, University College Cardiff Consultants Limited, 2008
+
+                                    Version 2012.1 linked Apr  1 2014 15:33:03
+
+
+ **********************************************************************************************************************************
+ LABEL *   CO+, first 5 electronically excited states                                    
+ Linux-3.2.0-4-amd64/qciep(x86_64) 64 bit serial version                                 DATE: 12-Feb-19          TIME: 15:06:18  
+ **********************************************************************************************************************************
+
+ SHA1:             960ce83de8be0427555cf121dea4debc26c720b5
+ **********************************************************************************************************************************
+  -->
+  <!--
+
+ ZUNIT=ANG
+ 
+ SETTING R              =         1.30000000                                  
+
+ Variable memory set to   50000000 words,  buffer space   230000 words
+
+ SETTING BASIS          =    CC-PVDZ
+  --><jobstep command="HF-SCF" commandset="SCFPRO">
+   <!--
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ Library entry C      S cc-pVDZ              selected for orbital group  1
+ Library entry C      P cc-pVDZ              selected for orbital group  1
+ Library entry C      D cc-pVDZ              selected for orbital group  1
+ Library entry O      S cc-pVDZ              selected for orbital group  2
+ Library entry O      P cc-pVDZ              selected for orbital group  2
+ Library entry O      D cc-pVDZ              selected for orbital group  2
+
+1PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+ Orientation using atomic masses  
+ Molecule type: Linear
+ Symmetry elements: X,Y
+ Rotational constants:      43.5879987     43.5879987      0.0000000 GHz  (calculated with average atomic masses)
+
+ Point group  C2v 
+
+
+   --><cml:symmetry pointGroup="C2v"/><!--
+   --><cml:atomArray>
+    <cml:atom id="a1" elementType="C" x3="0.0" y3="0.0" z3="-0.74255348013595"/>
+    <cml:atom id="a2" elementType="O" x3="0.0" y3="0.0" z3="0.55744651986405"/>
+   </cml:atomArray><!--
+   --><cml:bondArray>
+    <cml:bond atomRefs2="a1 a2"/>
+   </cml:bondArray><!--
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  C       6.00    0.000000000    0.000000000   -1.403222715
+   2  O       8.00    0.000000000    0.000000000    1.053421255
+
+ Bond lengths in Bohr (Angstrom)
+
+ 1-2  2.456643971
+     ( 1.300000000)
+
+ NUCLEAR CHARGE:                   14
+ NUMBER OF PRIMITIVE AOS:          54
+ NUMBER OF SYMMETRY AOS:           52
+ NUMBER OF CONTRACTIONS:           28   (  14A1  +   6B1  +   6B2  +   2A2  )
+ NUMBER OF CORE ORBITALS:           2   (   2A1  +   0B1  +   0B2  +   0A2  )
+ NUMBER OF VALENCE ORBITALS:        8   (   4A1  +   2B1  +   2B2  +   0A2  )
+
+
+ NUCLEAR REPULSION ENERGY   19.53885079
+
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 1:   1 1 1 1 1 1 2 1 1 1   1 1 1 2
+
+ Eigenvalues of metric
+
+         1 0.155E-01 0.378E-01 0.129E+00 0.154E+00 0.182E+00 0.919E+00 0.962E+00 0.998E+00
+         2 0.145E+00 0.193E+00 0.538E+00 0.113E+01 0.136E+01 0.264E+01
+         3 0.145E+00 0.193E+00 0.538E+00 0.113E+01 0.136E+01 0.264E+01
+         4 0.919E+00 0.108E+01
+
+
+ Contracted 2-electron integrals neglected if value below      1.0D-11
+ AO integral compression algorithm  1   Integral accuracy      1.0D-11
+
+     0.262 MB (compressed) written to integral file (100.0%)
+
+
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:      24933.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:   1  SEGMENT LENGTH:      24933      RECORD LENGTH: 524288
+
+ Memory used in sort:       0.58 MW
+
+ SORT1 READ       32016. AND WROTE       21069. INTEGRALS IN      1 RECORDS. CPU TIME:     0.00 SEC, REAL TIME:     0.01 SEC
+ SORT2 READ       21069. AND WROTE       24933. INTEGRALS IN      1 RECORDS. CPU TIME:     0.01 SEC, REAL TIME:     0.01 SEC
+
+ FILE SIZES:   FILE 1:     7.8 MBYTE,  FILE 4:     4.2 MBYTE,   TOTAL:     12.0 MBYTE
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19        7.65       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1300     1700   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+
+ PROGRAMS   *        TOTAL       INT
+ CPU TIMES  *         0.21      0.08
+ REAL TIME  *         0.29 SEC
+ DISK USED  *        12.29 MB      
+ **********************************************************************************************************************************
+
+1PROGRAM * RHF-SCF (OPEN SHELL)       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       7+    6-    SPACE SYMMETRY=1    SPIN SYMMETRY: Doublet 
+ CONVERGENCE THRESHOLDS:    1.00E-06 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                 -0.30 (CLOSED)  0.00 (OPEN) 
+
+
+
+ Orbital guess generated from atomic densities. Full valence occupancy:    6   2   2   0
+
+ Molecular orbital dump at record        2100.2
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
+    1      0.000D+00      0.000D+00      -112.01996498    109.124999    0.00000    0.00000   -2.72843    0    start
+    2      0.000D+00      0.435D-01      -112.12429415    107.928099    0.00000    0.00000   -0.84086    1    diag,B
+    3      0.144D+00      0.314D-01      -112.17018866    109.940637    0.00000    0.00000   -1.61005    2    diag,B
+    4      0.453D-01      0.421D-02      -112.17168489    109.823132    0.00000    0.00000   -1.54615    3    diag,B
+    5      0.101D-01      0.110D-02      -112.17193884    109.856156    0.00000    0.00000   -1.56091    4    diag,B
+    6      0.355D-02      0.435D-03      -112.17197934    109.857527    0.00000    0.00000   -1.56769    5    diag,B
+    7      0.151D-02      0.125D-03      -112.17198316    109.858865    0.00000    0.00000   -1.56946    6    fixocc
+    8      0.458D-03      0.366D-04      -112.17198380    109.859362    0.00000    0.00000   -1.57010    7    diag,B
+    9      0.113D-03      0.233D-04      -112.17198421    109.859630    0.00000    0.00000   -1.57053    8    diag,B
+   10      0.131D-03      0.118D-04      -112.17198434    109.859729    0.00000    0.00000   -1.57089    9    orth
+   11      0.118D-03      0.182D-05      -112.17198434    109.859703    0.00000    0.00000   -1.57087    9    diag,B
+   12      0.110D-04      0.317D-06      -112.17198434    109.859696    0.00000    0.00000   -1.57087    9    diag,B
+   13      0.139D-05      0.319D-07      -112.17198434    109.859695    0.00000    0.00000   -1.57087    9    diag,B
+   14      0.107D-06      0.893D-08      -112.17198434    109.859696    0.00000    0.00000   -1.57087    0    orth
+
+ Final alpha occupancy:   5   1   1   0
+ Final beta  occupancy:   4   1   1   0
+
+ !RHF STATE 1.1 Energy               -112.171984338969
+   --><property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-112.171984338969"/><!--
+ Nuclear energy                        19.53885079
+ One-electron energy                 -186.64068318
+ Two-electron energy                   54.92984804
+ Virial quotient                       -1.00817389
+ !RHF STATE 1.1 Dipole moment           0.00000000     0.00000000    -1.57086804
+ Dipole moment /Debye                   0.00000000     0.00000000    -3.99248679
+   --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+     stateNumber="1" value="0.0 0.0 -1.57086803959186"/><!--
+
+ ELECTRON ORBITALS
+ =================
+
+
+   Orb  Occ    Energy  Couls-En    Coefficients
+
+                                   1 1s      1 1s      1 1s      1 2pz     1 2pz     1 3d0     1 3d2+    2 1s      2 1s      2 1s   
+                                   2 2pz     2 2pz     2 3d0     2 3d2+ 
+
+   1.1   2   -21.0959  -55.4621  0.000149  0.000409  0.001491  0.000196  0.001043 -0.000302  0.000000  1.000336  0.001061 -0.002624
+                                -0.002451  0.002641 -0.000003 -0.000000
+
+   2.1   2   -11.9258  -33.1170  0.999900 -0.000886  0.000501  0.000298  0.000216  0.000528  0.000000 -0.000270  0.000018  0.000257
+                                -0.000547  0.000373  0.000141  0.000000
+
+   3.1   2    -1.7954  -11.4014  0.002331  0.437105 -0.184256  0.260362 -0.115430  0.035885  0.000000  0.002223  0.875750 -0.099436
+                                -0.166357  0.031623  0.014647 -0.000000
+
+   4.1   2    -1.1402   -9.5565 -0.033278 -0.775676  0.253777 -0.245994  0.107736 -0.021474 -0.000000  0.010084  0.519464  0.077007
+                                 0.641747 -0.080423 -0.023700 -0.000000
+
+   5.1   +    -1.0986   -7.8043  0.042298  0.807237 -0.109971 -0.838068  0.261167  0.004573 -0.000000 -0.000619 -0.014435  0.041894
+                                 0.378436 -0.034730 -0.014522  0.000000
+
+                                   1 2px     1 2px     1 3d1+    2 2px     2 2px     2 3d1+ 
+
+   1.2   2    -0.9420   -9.1359  0.487144 -0.088039  0.058395  0.823543 -0.029390 -0.030927
+
+                                   1 2py     1 2py     1 3d1-    2 2py     2 2py     2 3d1- 
+
+   1.3   2    -0.9420   -9.1359  0.487144 -0.088039  0.058395  0.823543 -0.029390 -0.030927
+
+ HOMO      1.2    -0.941964 =     -25.6321eV
+ LUMO      2.2    -0.318419 =      -8.6646eV
+ LUMO-HOMO         0.623545 =      16.9675eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19        7.65       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1300     1700   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+
+              2       4        0.30       700     1000      520     2100   
+                                         GEOM     BASIS   MCVARS     RHF  
+
+ PROGRAMS   *        TOTAL        HF       INT
+ CPU TIMES  *         0.22      0.01      0.08
+ REAL TIME  *         0.31 SEC
+ DISK USED  *        12.29 MB      
+ **********************************************************************************************************************************
+   -->
+   <time start="15:06:18" end="15:06:18" cpu="0.22" system="0.08" real="0.31"/>
+   <storage units="megabyte" memory="401.84" sf="0.0" df="12.29" eaf="0.0"/>
+  </jobstep><!--
+  --><jobstep command="OPTG" commandset="OPT">
+   <!--
+
+
+ PROGRAM * OPT (Geometry optimization)     Authors: F. Eckert and H.-J. Werner
+
+
+ BFGS update of hessian
+
+ *** Long output written to logfile /home/jcartus/Repos/TMSoCM/TaskF/RAW/excitations.log ***
+
+
+ Geometry optimization using default procedure for command HF-SCF
+
+ Geometry written to block  1 of record 700
+   --><gradient name="RHF GRADIENT" stateSymmetry="1" stateNumber="1"
+     virial="0.823966792785924">
+      0.000000000000   0.000000000000  -0.335403421319
+      0.000000000000   0.000000000000   0.335403421319
+   </gradient><!--
+
+ Making model hessian for Z-matrix coordinates
+
+ Quadratic Steepest Descent - Minimum Search
+   --><opt energy="-112.17198434" type="HF-SCF000" line="0.0"
+     convergence="0.402356146964094" gradient="0.335403421319338"/><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><cml:symmetry pointGroup="C2v"/><!--
+    --><cml:atomArray>
+     <cml:atom id="a1" elementType="C" x3="0.0" y3="0.0" z3="-0.620935956095967"/>
+     <cml:atom id="a2" elementType="O" x3="0.0" y3="0.0" z3="0.46614634102958"/>
+    </cml:atomArray><!--
+    --><cml:bondArray>
+     <cml:bond atomRefs2="a1 a2"/>
+    </cml:bondArray><!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+      value="-112.263169379604"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+      stateNumber="1" value="0.0 0.0 -1.28748749929937"/><!--
+    -->
+    <time start="15:06:18" end="15:06:19" cpu="0.34" system="0.13" real="0.47"/>
+    <storage units="megabyte" memory="401.84" sf="0.0" df="12.37" eaf="0.0"/>
+   </jobstep><!--
+
+ ITER.   ENERGY(OLD)    ENERGY(NEW)      DE          GRADMAX     GRADNORM    GRADRMS     STEPMAX     STEPLEN     STEPRMS   CPU-time
+   1  -112.17198434  -112.26316938    -0.09118504  0.33540342  0.33540342  0.33540342  0.40235615  0.40235615  0.40235615      0.33
+   --><gradient name="RHF GRADIENT" stateSymmetry="1" stateNumber="1"
+     virial="0.242601048320249E-01">
+      0.000000000000   0.000000000000  -0.011809496483
+      0.000000000000   0.000000000000   0.011809496483
+   </gradient><!--
+   --><opt energy="-112.26316938" type="HF-SCF000" line="0.0"
+     convergence="0.146839082502924E-01" gradient="0.118094964833908E-01"/><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><cml:symmetry pointGroup="C2v"/><!--
+    --><cml:atomArray>
+     <cml:atom id="a1" elementType="C" x3="0.0" y3="0.0" z3="-0.616497548535637"/>
+     <cml:atom id="a2" elementType="O" x3="0.0" y3="0.0" z3="0.462814359004808"/>
+    </cml:atomArray><!--
+    --><cml:bondArray>
+     <cml:bond atomRefs2="a1 a2"/>
+    </cml:bondArray><!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+      value="-112.263151493213"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+      stateNumber="1" value="0.0 0.0 -1.27569097417977"/><!--
+    -->
+    <time start="15:06:19" end="15:06:19" cpu="0.34" system="0.03" real="0.37"/>
+    <storage units="megabyte" memory="401.84" sf="0.0" df="12.37" eaf="0.0"/>
+   </jobstep><!--
+   2  -112.26316938  -112.26315149     0.00001789  0.01180950  0.01180950  0.01180950  0.01468391  0.01468391  0.01468391      0.67
+   --><gradient name="RHF GRADIENT" stateSymmetry="1" stateNumber="1"
+     virial="-0.295436511189276E-01">
+      0.000000000000   0.000000000000   0.014484994313
+      0.000000000000   0.000000000000  -0.014484994313
+   </gradient><!--
+   --><opt energy="-112.26315149" type="HF-SCF000" line="0.0"
+     convergence="0.808900728086812E-02" gradient="0.144849943130954E-01"/><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><cml:symmetry pointGroup="C2v"/><!--
+    --><cml:atomArray>
+     <cml:atom id="a1" elementType="C" x3="0.0" y3="0.0" z3="-0.618942559118583"/>
+     <cml:atom id="a2" elementType="O" x3="0.0" y3="0.0" z3="0.464649866718333"/>
+    </cml:atomArray><!--
+    --><cml:bondArray>
+     <cml:bond atomRefs2="a1 a2"/>
+    </cml:bondArray><!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+      value="-112.263209063301"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+      stateNumber="1" value="0.0 0.0 -1.28219480037136"/><!--
+    -->
+    <time start="15:06:19" end="15:06:19" cpu="0.36" system="0.02" real="0.37"/>
+    <storage units="megabyte" memory="401.84" sf="0.0" df="12.37" eaf="0.0"/>
+   </jobstep><!--
+   3  -112.26315149  -112.26320906    -0.00005757  0.01448499  0.01448499  0.01448499  0.00808901  0.00808901  0.00808901      1.03
+   --><gradient name="RHF GRADIENT" stateSymmetry="1" stateNumber="1"
+     virial="0.36338866394588E-03">
+      0.000000000000   0.000000000000  -0.000177462480
+      0.000000000000   0.000000000000   0.000177462480
+   </gradient><!--
+   --><opt energy="-112.26320906" type="HF-SCF000" line="0.0"
+     convergence="0.979027806435792E-04" gradient="0.177462479788559E-03"/><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><cml:symmetry pointGroup="C2v"/><!--
+    --><cml:atomArray>
+     <cml:atom id="a1" elementType="C" x3="0.0" y3="0.0" z3="-0.618912966694387"/>
+     <cml:atom id="a2" elementType="O" x3="0.0" y3="0.0" z3="0.464627651222314"/>
+    </cml:atomArray><!--
+    --><cml:bondArray>
+     <cml:bond atomRefs2="a1 a2"/>
+    </cml:bondArray><!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+      value="-112.263209072098"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+      stateNumber="1" value="0.0 0.0 -1.28211615008286"/><!--
+    -->
+    <time start="15:06:20" end="15:06:20" cpu="0.34" system="0.02" real="0.37"/>
+    <storage units="megabyte" memory="401.84" sf="0.0" df="12.37" eaf="0.0"/>
+   </jobstep><!--
+   4  -112.26320906  -112.26320907    -0.00000001  0.00017746  0.00017746  0.00017746  0.00009790  0.00009790  0.00009790      1.37
+
+ END OF GEOMETRY OPTIMIZATION.
+
+ Optimized variables
+ R=                   1.08354062 ANGSTROM
+
+ **********************************************************************************************************************************
+
+ Current geometry (xyz format, in Angstrom)
+
+    2
+ HF-SCF000/CC-PVDZ  ENERGY=-112.26320907
+ C          0.0000000000        0.0000000000       -0.6189129667
+ O          0.0000000000        0.0000000000        0.4646276512
+
+ **********************************************************************************************************************************
+
+ Geometry written to block  1 of record 700
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19        7.66       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1300     1700   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+
+              2       4        0.30       700     1000      520     2100   
+                                         GEOM     BASIS   MCVARS     RHF  
+
+ PROGRAMS   *        TOTAL      OPTG        HF       INT
+ CPU TIMES  *         1.60      1.37      0.01      0.08
+ REAL TIME  *         1.89 SEC
+ DISK USED  *        12.37 MB      
+ **********************************************************************************************************************************
+   --><time start="15:06:18" end="15:06:20" cpu="1.38" system="0.2" real="1.58"/><!--
+   --><storage units="megabyte" memory="401.84" sf="0.0" df="12.37" eaf="0.0"/><!--
+  --></jobstep><!--
+  --><jobstep command="MULTI" commandset="MULTI">
+   <!--
+
+1PROGRAM * MULTI (Direct Multiconfiguration SCF)       Authors: P.J. Knowles, H.-J. Werner (1984)     S.T. Elbert (1988)
+
+
+ Number of closed-shell orbitals:   6 (   4   1   1   0 )
+ Number of active  orbitals:       22 (  10   5   5   2 )
+ Number of external orbitals:       0 (   0   0   0   0 )
+
+ State symmetry 1
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=1
+ Number of states:        5
+ Number of CSFs:         10   (10 determinants, 22 intermediate states)
+
+ State symmetry 2
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=2
+ Number of states:        5
+ Number of CSFs:          5   (5 determinants, 22 intermediate states)
+
+ State symmetry 3
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=3
+ Number of states:        5
+ Number of CSFs:          5   (5 determinants, 22 intermediate states)
+
+ State symmetry 4
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=4
+ Number of states:        2
+ Number of CSFs:          2   (2 determinants, 22 intermediate states)
+
+ Molecular orbitals read from record     2100.2  Type=RHF/CANONICAL (state 1.1)
+
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 1:   1 1 1 1 1 1 1 1 1 2   1 1 2 1
+
+ Wavefunction dump at record             2140.2
+
+ Convergence thresholds  0.10E-01 (gradient)  0.10E-05 (energy)  0.10E-02 (step length)
+
+ Weight factors for state symmetry  1:    0.05882   0.05882   0.05882   0.05882   0.05882
+ Weight factors for state symmetry  2:    0.05882   0.05882   0.05882   0.05882   0.05882
+ Weight factors for state symmetry  3:    0.05882   0.05882   0.05882   0.05882   0.05882
+ Weight factors for state symmetry  4:    0.05882   0.05882
+
+ Number of orbital rotations:       50   (    50 Core/Active      0 Core/Virtual   0 Active/Active      0 Active/Virtual)
+ Total number of variables:        154
+
+
+ ITER. MIC  NCI  NEG     ENERGY(VAR)     ENERGY(PROJ)   ENERGY CHANGE     GRAD(0)  GRAD(ORB)   GRAD(CI)     STEP       TIME
+
+   1   46   28    0    -110.67533938    -110.72930217   -0.05396279    0.38194425 0.00000365 0.00000000  0.38D-01      0.20
+   2   19   20    0    -110.72932653    -110.72932653   -0.00000000    0.00001535 0.00000000 0.00000000  0.52D-05      0.36
+
+ ** WVFN ****  CONVERGENCE REACHED, FINAL GRADIENT:  0.19D-06
+
+
+
+ Results for state 1.1
+ =====================
+
+ !MCSCF STATE 1.1 Energy             -112.222345931221
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-112.222345931221"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.01428602
+ One electron energy                 -193.58434477
+ Two electron energy                   57.91986329
+ Virial ratio                           2.00185744
+
+ !MCSCF STATE 1.1 Dipole moment         0.00000000     0.00000000    -0.56660895
+ Dipole moment /Debye                   0.00000000     0.00000000    -1.44008199
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="1"
+     stateNumber="1" value="0.0 0.0 -0.566608954635772"/><!--
+
+ Results for state 2.1
+ =====================
+
+ !MCSCF STATE 2.1 Energy             -111.447568004219
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="2"
+     value="-111.447568004219"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       111.36907370
+ One electron energy                 -191.29357406
+ Two electron energy                   56.40387052
+ Virial ratio                           2.00070481
+
+ !MCSCF STATE 2.1 Dipole moment         0.00000000     0.00000000    -1.13277704
+ Dipole moment /Debye                   0.00000000     0.00000000    -2.87904347
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="1"
+     stateNumber="2" value="0.0 0.0 -1.13277704137131"/><!--
+
+ Results for state 3.1
+ =====================
+
+ !MCSCF STATE 3.1 Energy             -111.247328142646
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="3"
+     value="-111.247328142646"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       111.99907332
+ One electron energy                 -191.09400312
+ Two electron energy                   56.40453944
+ Virial ratio                           1.99328793
+
+ !MCSCF STATE 3.1 Dipole moment         0.00000000     0.00000000     0.04891896
+ Dipole moment /Debye                   0.00000000     0.00000000     0.12433144
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="1"
+     stateNumber="3" value="0.0 0.0 0.489189563836345E-01"/><!--
+
+ Results for state 4.1
+ =====================
+
+ !MCSCF STATE 4.1 Energy             -110.982131467848
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="4"
+     value="-110.982131467848"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       113.63817016
+ One electron energy                 -193.47531021
+ Two electron energy                   59.05104320
+ Virial ratio                           1.97662723
+
+ !MCSCF STATE 4.1 Dipole moment         0.00000000     0.00000000    -1.76710970
+ Dipole moment /Debye                   0.00000000     0.00000000    -4.49125068
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="1"
+     stateNumber="4" value="0.0 0.0 -1.76710970171574"/><!--
+
+ Results for state 5.1
+ =====================
+
+ !MCSCF STATE 5.1 Energy             -110.837084648474
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="5"
+     value="-110.837084648474"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.39613014
+ One electron energy                 -191.87458153
+ Two electron energy                   57.59536134
+ Virial ratio                           1.98612901
+
+ !MCSCF STATE 5.1 Dipole moment         0.00000000     0.00000000    -3.82606349
+ Dipole moment /Debye                   0.00000000     0.00000000    -9.72424645
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="1"
+     stateNumber="5" value="0.0 0.0 -3.82606349337299"/><!--
+
+
+
+ Results for state 1.2
+ =====================
+
+ !MCSCF STATE 1.2 Energy             -111.865255209998
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="1"
+     value="-111.865255209998"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.46324673
+ One electron energy                 -193.98474199
+ Two electron energy                   58.67735124
+ Virial ratio                           1.99468278
+
+ !MCSCF STATE 1.2 Dipole moment         0.00000000     0.00000000    -1.55898461
+ Dipole moment /Debye                   0.00000000     0.00000000    -3.96228411
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="2"
+     stateNumber="1" value="0.0 0.0 -1.55898461335687"/><!--
+
+ Results for state 2.2
+ =====================
+
+ !MCSCF STATE 2.2 Energy             -111.281660438158
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="2"
+     value="-111.281660438158"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       111.69805991
+ One electron energy                 -191.30874841
+ Two electron energy                   56.58495243
+ Virial ratio                           1.99627210
+
+ !MCSCF STATE 2.2 Dipole moment         0.00000000     0.00000000    -0.85185031
+ Dipole moment /Debye                   0.00000000     0.00000000    -2.16504572
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="2"
+     stateNumber="2" value="0.0 0.0 -0.85185031327832"/><!--
+
+ Results for state 3.2
+ =====================
+
+ !MCSCF STATE 3.2 Energy             -110.693986409039
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="3"
+     value="-110.693986409039"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       113.27393783
+ One electron energy                 -192.42278224
+ Two electron energy                   58.28666029
+ Virial ratio                           1.97722379
+
+ !MCSCF STATE 3.2 Dipole moment         0.00000000     0.00000000    -3.10674138
+ Dipole moment /Debye                   0.00000000     0.00000000    -7.89603175
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="2"
+     stateNumber="3" value="0.0 0.0 -3.10674137743168"/><!--
+
+ Results for state 4.2
+ =====================
+
+ !MCSCF STATE 4.2 Energy             -110.504210058058
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="4"
+     value="-110.504210058058"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.83748263
+ One electron energy                 -192.03252089
+ Two electron energy                   58.08617529
+ Virial ratio                           1.97932183
+
+ !MCSCF STATE 4.2 Dipole moment         0.00000000     0.00000000    -1.20748237
+ Dipole moment /Debye                   0.00000000     0.00000000    -3.06891304
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="2"
+     stateNumber="4" value="0.0 0.0 -1.20748237026512"/><!--
+
+ Results for state 5.2
+ =====================
+
+ !MCSCF STATE 5.2 Energy             -108.583997420880
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="5"
+     value="-108.58399742088"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       115.06039657
+ One electron energy                 -191.67711059
+ Two electron energy                   59.65097763
+ Virial ratio                           1.94371305
+
+ !MCSCF STATE 5.2 Dipole moment         0.00000000     0.00000000    -2.77614543
+ Dipole moment /Debye                   0.00000000     0.00000000    -7.05579569
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="2"
+     stateNumber="5" value="0.0 0.0 -2.77614542641562"/><!--
+
+
+
+ Results for state 1.3
+ =====================
+
+ !MCSCF STATE 1.3 Energy             -111.865255209998
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="1"
+     value="-111.865255209998"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.46324673
+ One electron energy                 -193.98474199
+ Two electron energy                   58.67735124
+ Virial ratio                           1.99468278
+
+ !MCSCF STATE 1.3 Dipole moment         0.00000000     0.00000000    -1.55898461
+ Dipole moment /Debye                   0.00000000     0.00000000    -3.96228411
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="3"
+     stateNumber="1" value="0.0 0.0 -1.55898461335688"/><!--
+
+ Results for state 2.3
+ =====================
+
+ !MCSCF STATE 2.3 Energy             -111.281660438158
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="2"
+     value="-111.281660438158"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       111.69805991
+ One electron energy                 -191.30874841
+ Two electron energy                   56.58495243
+ Virial ratio                           1.99627210
+
+ !MCSCF STATE 2.3 Dipole moment         0.00000000     0.00000000    -0.85185031
+ Dipole moment /Debye                   0.00000000     0.00000000    -2.16504572
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="3"
+     stateNumber="2" value="0.0 0.0 -0.851850313278306"/><!--
+
+ Results for state 3.3
+ =====================
+
+ !MCSCF STATE 3.3 Energy             -110.693986409039
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="3"
+     value="-110.693986409039"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       113.27393783
+ One electron energy                 -192.42278224
+ Two electron energy                   58.28666029
+ Virial ratio                           1.97722379
+
+ !MCSCF STATE 3.3 Dipole moment         0.00000000     0.00000000    -3.10674138
+ Dipole moment /Debye                   0.00000000     0.00000000    -7.89603175
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="3"
+     stateNumber="3" value="0.0 0.0 -3.10674137743169"/><!--
+
+ Results for state 4.3
+ =====================
+
+ !MCSCF STATE 4.3 Energy             -110.504210058058
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="4"
+     value="-110.504210058058"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.83748263
+ One electron energy                 -192.03252089
+ Two electron energy                   58.08617529
+ Virial ratio                           1.97932183
+
+ !MCSCF STATE 4.3 Dipole moment         0.00000000     0.00000000    -1.20748237
+ Dipole moment /Debye                   0.00000000     0.00000000    -3.06891304
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="3"
+     stateNumber="4" value="0.0 0.0 -1.20748237026512"/><!--
+
+ Results for state 5.3
+ =====================
+
+ !MCSCF STATE 5.3 Energy             -108.583997420880
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="5"
+     value="-108.58399742088"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       115.06039657
+ One electron energy                 -191.67711059
+ Two electron energy                   59.65097763
+ Virial ratio                           1.94371305
+
+ !MCSCF STATE 5.3 Dipole moment         0.00000000     0.00000000    -2.77614543
+ Dipole moment /Debye                   0.00000000     0.00000000    -7.05579569
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="3"
+     stateNumber="5" value="0.0 0.0 -2.77614542641562"/><!--
+
+
+
+ Results for state 1.4
+ =====================
+
+ !MCSCF STATE 1.4 Energy             -110.715148871657
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="4" stateNumber="1"
+     value="-110.715148871657"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       112.12523241
+ One electron energy                 -191.69681709
+ Two electron energy                   57.53953267
+ Virial ratio                           1.98742403
+
+ !MCSCF STATE 1.4 Dipole moment         0.00000000     0.00000000    -1.05686351
+ Dipole moment /Debye                   0.00000000     0.00000000    -2.68610316
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="4"
+     stateNumber="1" value="0.0 0.0 -1.05686351001036"/><!--
+
+ Results for state 2.4
+ =====================
+
+ !MCSCF STATE 2.4 Energy             -109.088724916580
+   --><property name="Energy" method="MCSCF" principal="true" stateSymmetry="4" stateNumber="2"
+     value="-109.08872491658"/><!--
+ Nuclear energy                        23.44213554
+ Kinetic energy                       114.42162987
+ One electron energy                 -192.28155720
+ Two electron energy                   59.75069674
+ Virial ratio                           1.95339251
+
+ !MCSCF STATE 2.4 Dipole moment         0.00000000     0.00000000    -2.96593830
+ Dipole moment /Debye                   0.00000000     0.00000000    -7.53816948
+   --><property name="Dipole moment" method="MCSCF" principal="true" stateSymmetry="4"
+     stateNumber="2" value="0.0 0.0 -2.96593830444239"/><!--
+
+ State-averaged charge density matrix saved on record  2140.2 (density set 1)
+
+ !MCSCF trans         <1.2|DMX|1.1>    -0.516847078662 au =    -1.313608198185 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.516847078661887" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.2|DMX|2.1>    -0.161303934907 au =    -0.409966854882 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.161303934907227" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.2|DMX|3.1>     0.418082521854 au =     1.062590175894 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.418082521854137" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.2|DMX|4.1>     0.214188926698 au =     0.544378292316 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.214188926697504" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.2|DMX|5.1>     0.113401196764 au =     0.288218213671 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.11340119676372" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.2|DMX|1.1>    -0.399509735117 au =    -1.015385952578 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.399509735116585" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.2|DMX|2.1>    -0.558831164510 au =    -1.420314111096 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.558831164510421" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.2|DMX|3.1>     1.261740676993 au =     3.206814869832 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="3"
+     value="1.26174067699297" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.2|DMX|4.1>    -0.579144060825 au =    -1.471940962111 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="4"
+     value="-0.579144060824803" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.2|DMX|5.1>     0.057082806136 au =     0.145080518420 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.570828061362177E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMX|1.1>    -0.038319933566 au =    -0.097393176752 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.383199335655724E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMX|2.1>    -0.648574629808 au =    -1.648404307628 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.648574629808081" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMX|3.1>    -0.235784006102 au =    -0.599263914230 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="3"
+     value="-0.235784006102355" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMX|4.1>    -0.256958137321 au =    -0.653079662652 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="4"
+     value="-0.256958137320857" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMX|5.1>    -0.368286637010 au =    -0.936029950893 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="5"
+     value="-0.368286637010285" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMX|1.1>     0.373854328323 au =     0.950180683780 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="1"
+     value="0.37385432832313" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMX|2.1>    -0.344722797216 au =    -0.876140566949 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.344722797216293" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMX|3.1>     0.139659461704 au =     0.354955694678 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.139659461703955" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMX|4.1>     0.056388311838 au =     0.143315405601 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.563883118377531E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMX|5.1>     0.281100803904 au =     0.714440181186 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.28110080390389" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMX|1.1>    -0.068815871991 au =    -0.174901043934 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.68815871990522E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMX|2.1>    -0.095215176646 au =    -0.241996988661 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.952151766462612E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMX|3.1>     0.075748839722 au =     0.192521736060 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.757488397217106E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMX|4.1>     0.341245338606 au =     0.867302327693 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.341245338605629" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMX|5.1>     0.150841469766 au =     0.383375662728 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.150841469766238" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMX|1.3>    -0.439421835221 au =    -1.116825747962 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="3" ketStateNumber="1"
+     value="-0.439421835221343" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMX|2.3>    -0.230302356901 au =    -0.585331864253 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="3" ketStateNumber="2"
+     value="-0.23030235690133" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMX|3.3>    -0.052286262651 au =    -0.132889719429 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="3" ketStateNumber="3"
+     value="-0.522862626510263E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMX|4.3>    -0.044956523298 au =    -0.114260600482 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="3" ketStateNumber="4"
+     value="-0.449565232975042E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMX|5.3>    -0.044481010831 au =    -0.113052047508 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="3" ketStateNumber="5"
+     value="-0.444810108309442E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMX|1.3>     0.374697603819 au =     0.952323935914 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="3" ketStateNumber="1"
+     value="0.374697603818873" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMX|2.3>     0.029648189521 au =     0.075353245522 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="3" ketStateNumber="2"
+     value="0.296481895207115E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMX|3.3>    -0.070489897691 au =    -0.179155714173 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="3" ketStateNumber="3"
+     value="-0.704898976908036E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMX|4.3>     0.023868289267 au =     0.060663166636 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="3" ketStateNumber="4"
+     value="0.238682892674759E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMX|5.3>     0.015104264748 au =     0.038388697199 Debye
+   --><property name="DMX" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="3" ketStateNumber="5"
+     value="0.151042647483571E-01" origin="0.0 0.0 0.0"/><!--
+
+ !MCSCF trans         <1.3|DMY|1.1>    -0.516847078662 au =    -1.313608198185 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.516847078661886" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.3|DMY|2.1>    -0.161303934907 au =    -0.409966854882 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.161303934907224" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.3|DMY|3.1>     0.418082521854 au =     1.062590175894 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.418082521854135" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.3|DMY|4.1>     0.214188926698 au =     0.544378292316 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.214188926697505" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.3|DMY|5.1>     0.113401196764 au =     0.288218213671 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="1" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.113401196763719" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.3|DMY|1.1>    -0.399509735117 au =    -1.015385952578 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.399509735116584" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.3|DMY|2.1>    -0.558831164510 au =    -1.420314111096 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.558831164510415" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.3|DMY|3.1>     1.261740676993 au =     3.206814869832 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="3"
+     value="1.26174067699297" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.3|DMY|4.1>    -0.579144060825 au =    -1.471940962111 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="4"
+     value="-0.5791440608248" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.3|DMY|5.1>     0.057082806136 au =     0.145080518420 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.570828061362218E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMY|1.1>    -0.038319933566 au =    -0.097393176752 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.383199335655761E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMY|2.1>    -0.648574629808 au =    -1.648404307628 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.648574629808087" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMY|3.1>    -0.235784006102 au =    -0.599263914230 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="3"
+     value="-0.235784006102342" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMY|4.1>    -0.256958137321 au =    -0.653079662652 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="4"
+     value="-0.256958137320863" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMY|5.1>    -0.368286637010 au =    -0.936029950893 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="5"
+     value="-0.368286637010283" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMY|1.1>     0.373854328323 au =     0.950180683780 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="1"
+     value="0.37385432832313" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMY|2.1>    -0.344722797216 au =    -0.876140566949 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.344722797216291" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMY|3.1>     0.139659461704 au =     0.354955694678 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.139659461703955" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMY|4.1>     0.056388311838 au =     0.143315405601 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.563883118377543E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMY|5.1>     0.281100803904 au =     0.714440181186 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.281100803903891" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMY|1.1>    -0.068815871991 au =    -0.174901043934 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.688158719905219E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMY|2.1>    -0.095215176646 au =    -0.241996988661 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.952151766462609E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMY|3.1>     0.075748839722 au =     0.192521736060 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.757488397217098E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMY|4.1>     0.341245338606 au =     0.867302327693 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.341245338605629" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMY|5.1>     0.150841469766 au =     0.383375662728 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="5"
+     value="0.150841469766238" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMY|1.2>    -0.439421835221 au =    -1.116825747962 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="2" ketStateNumber="1"
+     value="-0.439421835221346" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMY|2.2>    -0.230302356901 au =    -0.585331864253 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="2" ketStateNumber="2"
+     value="-0.230302356901331" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMY|3.2>    -0.052286262651 au =    -0.132889719429 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="2" ketStateNumber="3"
+     value="-0.522862626510235E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMY|4.2>    -0.044956523298 au =    -0.114260600482 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="2" ketStateNumber="4"
+     value="-0.449565232975044E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <1.4|DMY|5.2>    -0.044481010831 au =    -0.113052047508 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="1" ketStateSymmetry="2" ketStateNumber="5"
+     value="-0.444810108309442E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMY|1.2>     0.374697603819 au =     0.952323935914 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="2" ketStateNumber="1"
+     value="0.374697603818872" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMY|2.2>     0.029648189521 au =     0.075353245522 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="2" ketStateNumber="2"
+     value="0.296481895207108E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMY|3.2>    -0.070489897691 au =    -0.179155714173 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="2" ketStateNumber="3"
+     value="-0.704898976908046E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMY|4.2>     0.023868289267 au =     0.060663166636 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="2" ketStateNumber="4"
+     value="0.238682892674754E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMY|5.2>     0.015104264748 au =     0.038388697199 Debye
+   --><property name="DMY" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="2" ketStateNumber="5"
+     value="0.151042647483571E-01" origin="0.0 0.0 0.0"/><!--
+
+ !MCSCF expec         <1.1|DMZ|1.1>    -0.566608954636 au =    -1.440081986923 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-0.566608954635771" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.1|DMZ|1.1>    -0.682744194045 au =    -1.735248988702 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="2" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.682744194045382" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <2.1|DMZ|2.1>    -1.132777041371 au =    -2.879043472808 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="2"
+     value="-1.13277704137131" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.1|DMZ|1.1>    -0.198112262093 au =    -0.503518163091 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.198112262093223" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.1|DMZ|2.1>     1.024726445304 au =     2.604424238855 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="3" ketStateSymmetry="1" ketStateNumber="2"
+     value="1.02472644530385" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <3.1|DMZ|3.1>     0.048918956384 au =     0.124331441166 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="3"
+     value="0.489189563836341E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.1|DMZ|1.1>     0.459209949449 au =     1.167118823320 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="1"
+     value="0.45920994944863" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.1|DMZ|2.1>    -0.205017372575 au =    -0.521068053790 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.205017372575332" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.1|DMZ|3.1>     0.277741164037 au =     0.705901387693 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="4" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.277741164037111" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <4.1|DMZ|4.1>    -1.767109701716 au =    -4.491250675687 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="4"
+     value="-1.76710970171574" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.1|DMZ|1.1>    -0.003614430310 au =    -0.009186363788 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="1"
+     value="-0.361443031008284E-02" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.1|DMZ|2.1>    -0.677712226508 au =    -1.722459840648 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="2"
+     value="-0.677712226507921" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.1|DMZ|3.1>     0.342072962828 au =     0.869405800864 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="3"
+     value="0.342072962828008" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.1|DMZ|4.1>     0.114773614335 au =     0.291706322721 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="1"
+     braStateNumber="5" ketStateSymmetry="1" ketStateNumber="4"
+     value="0.114773614334592" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <5.1|DMZ|5.1>    -3.826063493373 au =    -9.724246453487 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="1" stateNumber="5"
+     value="-3.82606349337299" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <1.2|DMZ|1.2>    -1.558984613357 au =    -3.962284113616 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="1"
+     value="-1.55898461335687" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.2|DMZ|1.2>     0.294605645476 au =     0.748763816429 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="2" ketStateSymmetry="2" ketStateNumber="1"
+     value="0.294605645475929" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <2.2|DMZ|2.2>    -0.851850313278 au =    -2.165045719222 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="2"
+     value="-0.85185031327832" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMZ|1.2>     0.007216236508 au =     0.018340642384 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="2" ketStateNumber="1"
+     value="0.721623650796427E-02" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.2|DMZ|2.2>    -0.711032351703 au =    -1.807145604440 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="3" ketStateSymmetry="2" ketStateNumber="2"
+     value="-0.71103235170257" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <3.2|DMZ|3.2>    -3.106741377432 au =    -7.896031750053 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="3"
+     value="-3.10674137743168" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMZ|1.2>    -0.818256650669 au =    -2.079664738206 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="2" ketStateNumber="1"
+     value="-0.818256650668617" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMZ|2.2>     0.015411535916 au =     0.039169651453 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="2" ketStateNumber="2"
+     value="0.154115359160122E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.2|DMZ|3.2>    -0.006870745869 au =    -0.017462550286 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="4" ketStateSymmetry="2" ketStateNumber="3"
+     value="-0.68707458692891E-02" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <4.2|DMZ|4.2>    -1.207482370265 au =    -3.068913042618 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="4"
+     value="-1.20748237026512" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMZ|1.2>     0.163664762587 au =     0.415967087295 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="2" ketStateNumber="1"
+     value="0.163664762586836" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMZ|2.2>    -0.034085670009 au =    -0.086631457180 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="2" ketStateNumber="2"
+     value="-0.340856700085832E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMZ|3.2>     0.049785211286 au =     0.126533097300 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="2" ketStateNumber="3"
+     value="0.497852112860356E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.2|DMZ|4.2>     0.761941174039 au =     1.936534449113 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="2"
+     braStateNumber="5" ketStateSymmetry="2" ketStateNumber="4"
+     value="0.761941174038767" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <5.2|DMZ|5.2>    -2.776145426416 au =    -7.055795692869 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="2" stateNumber="5"
+     value="-2.77614542641562" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <1.3|DMZ|1.3>    -1.558984613357 au =    -3.962284113616 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="1"
+     value="-1.55898461335688" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.3|DMZ|1.3>     0.294605645476 au =     0.748763816429 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="2" ketStateSymmetry="3" ketStateNumber="1"
+     value="0.29460564547593" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <2.3|DMZ|2.3>    -0.851850313278 au =    -2.165045719222 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="2"
+     value="-0.851850313278306" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMZ|1.3>     0.007216236508 au =     0.018340642384 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="3" ketStateNumber="1"
+     value="0.721623650796718E-02" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <3.3|DMZ|2.3>    -0.711032351703 au =    -1.807145604440 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="3" ketStateSymmetry="3" ketStateNumber="2"
+     value="-0.711032351702547" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <3.3|DMZ|3.3>    -3.106741377432 au =    -7.896031750053 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="3"
+     value="-3.10674137743169" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMZ|1.3>    -0.818256650669 au =    -2.079664738206 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="3" ketStateNumber="1"
+     value="-0.818256650668617" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMZ|2.3>     0.015411535916 au =     0.039169651453 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="3" ketStateNumber="2"
+     value="0.154115359160139E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <4.3|DMZ|3.3>    -0.006870745869 au =    -0.017462550286 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="4" ketStateSymmetry="3" ketStateNumber="3"
+     value="-0.687074586928349E-02" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <4.3|DMZ|4.3>    -1.207482370265 au =    -3.068913042618 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="4"
+     value="-1.20748237026512" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMZ|1.3>     0.163664762587 au =     0.415967087295 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="3" ketStateNumber="1"
+     value="0.163664762586836" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMZ|2.3>    -0.034085670009 au =    -0.086631457180 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="3" ketStateNumber="2"
+     value="-0.340856700085841E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMZ|3.3>     0.049785211286 au =     0.126533097300 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="3" ketStateNumber="3"
+     value="0.497852112860386E-01" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <5.3|DMZ|4.3>     0.761941174039 au =     1.936534449113 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="3"
+     braStateNumber="5" ketStateSymmetry="3" ketStateNumber="4"
+     value="0.761941174038767" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <5.3|DMZ|5.3>    -2.776145426416 au =    -7.055795692869 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="3" stateNumber="5"
+     value="-2.77614542641562" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <1.4|DMZ|1.4>    -1.056863510010 au =    -2.686103159772 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="4" stateNumber="1"
+     value="-1.05686351001036" origin="0.0 0.0 0.0"/><!--
+ !MCSCF trans         <2.4|DMZ|1.4>    -0.410766482474 au =    -1.043995876527 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" braStateSymmetry="4"
+     braStateNumber="2" ketStateSymmetry="4" ketStateNumber="1"
+     value="-0.4107664824742" origin="0.0 0.0 0.0"/><!--
+ !MCSCF expec         <2.4|DMZ|2.4>    -2.965938304442 au =    -7.538169475805 Debye
+   --><property name="DMZ" method="MCSCF" principal="true" stateSymmetry="4" stateNumber="2"
+     value="-2.96593830444239" origin="0.0 0.0 0.0"/><!--
+
+
+ NATURAL ORBITALS (state averaged)
+ =================================
+
+   Orb     Occ        Energy       Coefficients
+
+                                   1 1s      1 1s      1 1s      1 2pz     1 2pz     1 3d0     1 3d2+    2 1s      2 1s      2 1s   
+                                   2 2pz     2 2pz     2 3d0     2 3d2+ 
+
+   1.1  2.00000   -21.133294    -0.000011 -0.000329  0.001768 -0.001167  0.001462 -0.000903  0.000000  1.000593  0.002271 -0.003037
+                                -0.003655  0.002864  0.000500  0.000000
+
+   2.1  2.00000   -11.965001     0.999384 -0.001270 -0.001763 -0.005486  0.002452 -0.000742  0.000000 -0.000762  0.000635  0.004012
+                                -0.002647 -0.000588  0.001603  0.000000
+
+   3.1  2.00000    -1.945143    -0.003082  0.551415 -0.251229  0.344155 -0.158624  0.037755  0.000000 -0.003333  0.832672 -0.185684
+                                -0.252707  0.092016  0.023300  0.000000
+
+   4.1  2.00000    -1.148396    -0.031190 -0.708479  0.251953 -0.177525  0.105220 -0.008865  0.000000  0.013062  0.571186  0.105464
+                                 0.705774 -0.124757 -0.025730  0.000000
+
+   5.1  0.05882     0.317999     0.220248  1.088260 -2.187295 -1.307983  0.932305  0.151048 -0.000000  0.010199  0.326586  0.403550
+                                -0.149488 -0.636624 -0.031787 -0.000000
+
+   6.1  0.05882    -0.591077     0.085393  1.003281 -0.323322 -0.864784  0.298165  0.007645  0.000000 -0.003848 -0.047754  0.104906
+                                 0.407952 -0.087516 -0.016958  0.000000
+
+   7.1  0.05882     0.606662     0.685971  3.180236 -2.502353  0.849468 -0.316271 -0.172644  0.000000 -0.017584 -0.401704 -0.141906
+                                 0.132118  0.945674  0.105234  0.000000
+
+   8.1  0.05882     0.663797     0.146028  0.286832  0.664647 -0.001544  0.310556  0.564451  0.000000 -0.019114 -0.062661 -0.822256
+                                -1.003213  1.670754 -0.021935  0.000000
+
+   9.1  0.05882     0.101843    -0.092011 -0.338345  1.756079 -0.239510  1.881681  0.113635  0.000000  0.029280 -0.209110 -1.579445
+                                -0.088258  0.483917 -0.060347  0.000000
+
+  10.1  0.00000     3.374217    -0.601502 -2.337784  1.105478 -1.341355  0.608597 -0.067257  0.000001 -0.111548 -0.294027  1.315946
+                                -0.121255 -0.959526  1.230563  0.000000
+
+  11.1  0.00000     0.897678     0.000000  0.000001 -0.000000  0.000001 -0.000000  0.000000  0.981790  0.000000  0.000000 -0.000001
+                                 0.000000  0.000001 -0.000001  0.089080
+
+  12.1  0.00000     1.739372     0.364156  1.373428  1.430314  1.094959  0.969440  0.457799 -0.000000  0.841750  3.542774 -6.682237
+                                 0.482414  1.017206 -0.182505 -0.000000
+
+  13.1  0.00000     2.582406     0.000000  0.000000 -0.000000  0.000000  0.000000  0.000000 -0.250367 -0.000000 -0.000000 -0.000000
+                                -0.000000  0.000000  0.000000  1.009287
+
+  14.1  0.00000     1.990100     0.079541  0.692332  0.088546  1.187081 -0.102396  1.308126  0.000000 -0.464683 -2.013647  0.603633
+                                 1.427096 -0.846917 -0.194591  0.000000
+
+                                   1 2px     1 2px     1 3d1+    2 2px     2 2px     2 3d1+ 
+
+   1.2  2.00000    -1.044354     0.648512 -0.181260  0.058208  0.765319 -0.083985 -0.039417
+
+   2.2  0.05882     1.123047     0.059402  0.297707  1.154338 -0.556924 -0.175747  0.036848
+
+   3.2  0.05882    -0.249700     0.796421  0.236422 -0.071221 -0.617694 -0.206037 -0.009480
+
+   4.2  0.05882     0.402805    -1.257058  1.865979  0.110605  0.674802 -1.078159  0.011555
+
+   5.2  0.05882     3.042164     0.547512 -0.044598  0.585287  0.059662 -0.566334  1.154033
+
+   6.2  0.05882     0.732334    -0.625054  0.350605 -0.165948 -1.114376  1.670830  0.100295
+
+                                   1 2py     1 2py     1 3d1-    2 2py     2 2py     2 3d1- 
+
+   1.3  2.00000    -1.044354     0.648512 -0.181260  0.058208  0.765319 -0.083985 -0.039417
+
+   2.3  0.05882     1.047470     0.288391  0.048476  1.098601 -0.272746 -0.516938 -0.075014
+
+   3.3  0.05882     0.292819    -1.391303  1.895968  0.211106  0.149637 -0.432044 -0.007860
+
+   4.3  0.05882     3.060967     0.493768  0.038489  0.679225 -0.027396 -0.524355  1.156147
+
+   5.3  0.05882    -0.249700     0.796421  0.236422 -0.071221 -0.617694 -0.206037 -0.009480
+
+   6.3  0.05882     0.899094    -0.107166 -0.311274  0.044632 -1.383252  1.891266  0.031266
+
+                                   1 3d2-    2 3d2- 
+
+   1.4  0.05882     2.561888    -0.250367  1.009287
+
+   2.4  0.05882     0.883194     0.981790  0.089080
+
+ Total charge:   1.000000000000
+ 
+
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 1:   1 1 1 1 1 1 1 1 1 1   2 1 2 1
+
+ Natural orbital dump (state averaged) at molpro section  2140.2    (Orbital set 2)
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      20        8.72       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1300     1700     1380   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER     JKOP   
+
+              2       5        0.35       700     1000      520     2100     2140   
+                                         GEOM     BASIS   MCVARS     RHF     MCSCF   
+
+ PROGRAMS   *        TOTAL     MULTI      OPTG        HF       INT
+ CPU TIMES  *         2.51      0.89      1.37      0.01      0.08
+ REAL TIME  *         3.02 SEC
+ DISK USED  *        26.92 MB      
+ **********************************************************************************************************************************
+   -->
+   <time start="15:06:20" end="15:06:21" cpu="0.91" system="0.23" real="1.13"/>
+   <storage units="megabyte" memory="401.84" sf="0.0" df="26.92" eaf="0.0"/>
+  </jobstep><!--
+
+        MULTI           OPTG(HF)        HF-SCF  
+   -109.08872492   -112.26320907   -112.17198434
+ **********************************************************************************************************************************
+ Variable memory released
+  --><stm:metadataList>
+   <stm:metadata name="dc:date" content="2019-02-12T15:06:21+01:00"/>
+   <stm:metadata name="dc:creator" content="jcartus"/>
+   <stm:metadata name="dc:title" content="CO+, first 5 electronically excited states"/>
+   <stm:metadata name="cmlm:insilico" content="Molpro"/>
+  </stm:metadataList><!--
+  --><platform>
+   <version major="2012" minor="1" SHA="960ce83de8be0427555cf121dea4debc26c720b5"
+     integer_bits="64" parallelism="serial">
+    2012.1
+    <date year="2019" month="2" day="12" hour="15" minute="6" second="18">
+     2019-02-12T15:06:18
+    </date>
+   </version>
+   <licence id="tugraziep"/>
+   <parallel processes="1" nodes="1" all_processes="1" openmp="1"/>
+   <machine hostname="qciep" architecture="x86_64">
+    Linux-3.2.0-4-amd64/qciep(x86_64) 64 bit serial version
+    <sysinfo name="cpu MHz" content="1400.000"/>
+    <sysinfo name="MemTotal" content="66095828 kB"/>
+    <sysinfo name="vendor_id" content="AuthenticAMD"/>
+    <sysinfo name="cpu family" content="21"/>
+    <sysinfo name="model name" content="AMD Opteron(TM) Processor 6212"/>
+    <sysinfo name="flags"
+      content="fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid amd_dcm aperfmperf pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 popcnt aes xsave avx lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 nodeid_msr topoext perfctr_core arat cpb hw_pstate npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold vmmcall"/>
+    <sysinfo name="MemTotal" content="66095828 kB"/>
+    <sysinfo name="cache size" content="2048 KB"/>
+    <sysinfo name="ncpu" content="16"/>
+   </machine>
+  </platform><!--
+  -->
+  <input>
+   <p> ***,CO+, first 5 electronically excited states </p>
+   <p>                                                                 ! 1 freies Elektron, alle Orbitale bis incl. 1Pi sind eingefroren. </p>
+   <p>                                                                                 ! Active space bis orbitale die aus 3d gebaut sind </p>
+   <p>                                                  ! Nur um grob zu sehen in welchen Symmetrien die angeregten zustände sein werden </p>
+   <p>                                                                                 !Memory: 20 mega words </p>
+   <p>                                                                        ! https://www.molpro.net/info/2015.1/doc/manual/node32.html </p>
+   <p> memory, 50, M </p>
+   <p> gprint, orbitals </p>
+   <p>                                                                                 !Geometry and Variables </p>
+   <p> angstrom </p>
+   <p> geometry={ </p>
+   <p> C </p>
+   <p> O   C  r </p>
+   <p> } </p>
+   <p> r = 1.3 </p>
+   <p>                                                                                 !basis=aug-cc-pCVQZ </p>
+   <p> basis=cc-pVDZ </p>
+   <p>                                                                                 ! single point </p>
+   <p> {hf </p>
+   <p> wf,13,1,1} </p>
+   <p> optg </p>
+   <p>                                                                                 ! calculate 5 excited states (lowest by default) </p>
+   <p>                                                                       ! https://www.molpro.net/info/2015.1/doc/manual/node324.html </p>
+   <p>                                                                                 !states, 5 ! Glaube, dass ist nicht das ziel. </p>
+   <p>                                                                                 ! guess from hf, dann casscf </p>
+   <p>                                                                                 !hf </p>
+   <p> {multi; </p>
+   <p> occ, 14, 6, 6, 2 </p>
+   <p> closed, 4, 1, 1, 0                                                              ! alle 4 sigma, und 1 pi sind closed </p>
+   <p> wf,13,1,1, </p>
+   <p> state,5 </p>
+   <p> wf,13,2,1, </p>
+   <p> state,5 </p>
+   <p> wf,13,3,1, </p>
+   <p> state,5 </p>
+   <p> wf,13,4,1, </p>
+   <p> state,2 </p>
+   <p> } </p>
+  </input>
+  <!--
+ --></job><!--
+--></molpro>
