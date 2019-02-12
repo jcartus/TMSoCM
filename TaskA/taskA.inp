@@ -1,4 +1,4 @@
-gprint, orbital
+gprint, orbitals
 
 !Geometry and Variables
 angstrom
@@ -14,6 +14,10 @@ basis=aug-cc-pCVQZ
 !https://www.molpro.net/info/2015.1/doc/quickstart/node27.html:
 hf
 optg
+
+
+! claculate energies
+hf
 
 !get virbational frew of CO in groud state 
 !(analytical calculation possible as method is HF)
