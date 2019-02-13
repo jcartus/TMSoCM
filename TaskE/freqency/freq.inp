@@ -19,6 +19,10 @@ r = 1.6
 ! spin ... total Spin. -> 1 (1 unpared electron, i.e. doublet)
 wf,charge=1,symmetry=3,spin=1
 
+! geometrie optimierung auf hf level
+hf
+optg
+
 
 basis=aug-cc-pCVQZ
 !basis=cc-pVDZ
@@ -27,7 +31,7 @@ basis=aug-cc-pCVQZ
 !https://www.theochem.ru.nl/molpro/molpro2006.1/doc/quickstart/node14.html
 hf
 uccsd(t)
-optg
+
 
 !get virbational frew of CO in groud state 
 !(analytical calculation not possible anymore)
