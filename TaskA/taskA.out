@@ -42,12 +42,14 @@
                                                                                  !get virbational frew of CO in groud state
                                                                                  !(analytical calculation possible as method is HF)
                                                                      !https://www.molpro.net/info/2015.1/doc/quickstart/node28.html
- frequencies,analytical
+                                                                                 !frequencies,analytical
+ frequencies,symm=auto
+ 
  
 
  Variables initialized (778), CPU time= 0.01 sec
- Commands  initialized (547), CPU time= 0.01 sec, 516 directives.
- Default parameters read. Elapsed time= 0.05 sec
+ Commands  initialized (547), CPU time= 0.00 sec, 516 directives.
+ Default parameters read. Elapsed time= 0.06 sec
 
  Checking input...
  Passed
@@ -62,7 +64,7 @@
 
  **********************************************************************************************************************************
  LABEL *                                                                                 
- Linux-3.2.0-4-amd64/qciep(x86_64) 64 bit serial version                                 DATE: 12-Feb-19          TIME: 16:59:40  
+ Linux-3.2.0-4-amd64/qciep(x86_64) 64 bit serial version                                 DATE: 13-Feb-19          TIME: 13:13:09  
  **********************************************************************************************************************************
 
  SHA1:             960ce83de8be0427555cf121dea4debc26c720b5
@@ -156,8 +158,8 @@
 
  Memory used in sort:       7.55 MW
 
- SORT1 READ    92484047. AND WROTE    46223042. INTEGRALS IN    136 RECORDS. CPU TIME:     2.93 SEC, REAL TIME:     3.65 SEC
- SORT2 READ    46223042. AND WROTE    73056576. INTEGRALS IN   1057 RECORDS. CPU TIME:     1.77 SEC, REAL TIME:     2.35 SEC
+ SORT1 READ    92484047. AND WROTE    46223042. INTEGRALS IN    136 RECORDS. CPU TIME:     2.88 SEC, REAL TIME:     3.63 SEC
+ SORT2 READ    46223042. AND WROTE    73056576. INTEGRALS IN   1057 RECORDS. CPU TIME:     1.88 SEC, REAL TIME:     2.33 SEC
 
  FILE SIZES:   FILE 1:   285.7 MBYTE,  FILE 4:   570.5 MBYTE,   TOTAL:    856.2 MBYTE
 
@@ -172,8 +174,8 @@
                                            T        V       H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
 
  PROGRAMS   *        TOTAL       INT
- CPU TIMES  *        29.57     29.43
- REAL TIME  *        31.48 SEC
+ CPU TIMES  *        29.57     29.44
+ REAL TIME  *        31.41 SEC
  DISK USED  *       856.50 MB      
  **********************************************************************************************************************************
 
@@ -331,8 +333,8 @@
                                          GEOM     BASIS   MCVARS     RHF  
 
  PROGRAMS   *        TOTAL        HF       INT
- CPU TIMES  *        35.73      6.15     29.43
- REAL TIME  *        38.16 SEC
+ CPU TIMES  *        35.68      6.11     29.44
+ REAL TIME  *        38.05 SEC
  DISK USED  *       856.50 MB      
  **********************************************************************************************************************************
 
@@ -354,13 +356,13 @@
  Quadratic Steepest Descent - Minimum Search
 
  ITER.   ENERGY(OLD)    ENERGY(NEW)      DE          GRADMAX     GRADNORM    GRADRMS     STEPMAX     STEPLEN     STEPRMS   CPU-time
-   1  -112.53425529  -112.68367873    -0.14942344  0.31353021  0.31353021  0.31353021  0.44999990  0.44999990  0.44999990    133.91
-   2  -112.68367873  -112.78982760    -0.10614887  0.32836053  0.32836053  0.32836053  0.44999964  0.44999964  0.44999964    268.68
-   3  -112.78982760  -112.78846400     0.00136360  0.05855655  0.05855655  0.05855655  0.09766509  0.09766509  0.09766509    419.12
-   4  -112.78846400  -112.79105278    -0.00258879  0.09542307  0.09542307  0.09542307  0.06052426  0.06052426  0.06052426    569.13
-   5  -112.79105278  -112.79106555    -0.00001276  0.00624382  0.00624382  0.00624382  0.00371707  0.00371707  0.00371707    722.20
-   6  -112.79106555  -112.79106567    -0.00000012  0.00061138  0.00061138  0.00061138  0.00040348  0.00040348  0.00040348    877.79
-   7  -112.79106567  -112.79106567     0.00000000  0.00000457  0.00000457  0.00000457  0.00000300  0.00000300  0.00000300   1028.14
+   1  -112.53425529  -112.68367873    -0.14942344  0.31353021  0.31353021  0.31353021  0.44999990  0.44999990  0.44999990    133.30
+   2  -112.68367873  -112.78982760    -0.10614887  0.32836053  0.32836053  0.32836053  0.44999964  0.44999964  0.44999964    281.72
+   3  -112.78982760  -112.78846400     0.00136360  0.05855655  0.05855655  0.05855655  0.09766509  0.09766509  0.09766509    431.11
+   4  -112.78846400  -112.79105278    -0.00258879  0.09542307  0.09542307  0.09542307  0.06052426  0.06052426  0.06052426    586.95
+   5  -112.79105278  -112.79106555    -0.00001276  0.00624382  0.00624382  0.00624382  0.00371707  0.00371707  0.00371707    741.80
+   6  -112.79106555  -112.79106567    -0.00000012  0.00061138  0.00061138  0.00061138  0.00040348  0.00040348  0.00040348    876.91
+   7  -112.79106567  -112.79106567     0.00000000  0.00000457  0.00000457  0.00000457  0.00000300  0.00000300  0.00000300   1023.55
 
  END OF GEOMETRY OPTIMIZATION.
 
@@ -392,8 +394,8 @@
                                          GEOM     BASIS   MCVARS     RHF  
 
  PROGRAMS   *        TOTAL      OPTG        HF       INT
- CPU TIMES  *      1063.87   1028.14      6.15     29.43
- REAL TIME  *      1097.63 SEC
+ CPU TIMES  *      1059.23   1023.55      6.11     29.44
+ REAL TIME  *      1097.21 SEC
  DISK USED  *       934.43 MB      
  **********************************************************************************************************************************
 
@@ -537,20 +539,107 @@
                                          GEOM     BASIS   MCVARS     RHF      RHF  
 
  PROGRAMS   *        TOTAL        HF      OPTG        HF       INT
- CPU TIMES  *      1064.81      0.94   1028.14      6.15     29.43
- REAL TIME  *      1098.68 SEC
+ CPU TIMES  *      1060.17      0.94   1023.55      6.11     29.44
+ REAL TIME  *      1098.30 SEC
  DISK USED  *       934.43 MB      
  **********************************************************************************************************************************
 
 
  PROGRAM * HESSIAN
 
- PROGRAM * MCKINLEY (Hessian of the energy)     Author: A. Bernhardsson, R. Lindh
+ Computing numerical hessian using default procedure for command HF-SCF
 
- Orbitals from record         2101.2
+ Symmetry elements for unique displacements: X  Y  
 
- Number of closed-shell orbitals:  7 (  5  1  1  0 )
- Number of occupied orbitals:      7 (  5  1  1  0 )
+ Using AUTO symmetry option
 
- Number of electrons= 14     Singlet     Space symmetry=1      Wavefunction type: CLOSED          
+ Running default procedure: HF-SCF001
+ 
 
+ Numerically approximating hessian using central gradient differences
+
+ Task list generated. Total number of displacements:      8
+
+    5 tasks completed, CPU=14m 52s Elapsed=14m 55s
+
+ Numerical HF-SCF001 hessian completed. CPU-time:  1394.08 sec, Elapsed:  1402.48 sec
+
+ HF-SCF hessian saved to record  5300.2
+
+ FREQUENCIES * CALCULATION OF HARMONIC VIBRATIONAL SPECTRA FOR HF-SCF
+
+
+ Permanent Dipole Moment [debye]
+   1-  3    0.000000    0.000000   -0.136687
+
+ Dipole Moment Norm    0.1366865 [debye]
+
+ Dipole Moment Derivatives [debye/ang]
+                   1             2             3             4             5             6
+         1     0.1238862     0.0000000     0.0000000    -0.1241009     0.0000000     0.0000000
+         2     0.0000000     0.1238862     0.0000000     0.0000000    -0.1241009     0.0000000
+         3     0.0000000     0.0000000     4.8421818     0.0000000     0.0000000    -4.8421818
+
+ Projecting out rotations and translations
+
+   Low Vibration      Wavenumber
+        Nr             [1/cm] 
+        1                0.00
+        2                0.00
+        3                0.00
+        4                0.00
+        5                0.00
+
+     Vibration        Wavenumber
+        Nr             [1/cm] 
+        1             2425.88
+
+ FREQUENCIES * CALCULATION OF NORMAL MODES FOR HF-SCF
+
+
+ Atomic Coordinates
+
+  Nr  Atom  Charge       X              Y              Z
+
+   1   C     6.00    0.000000000    0.000000000   -1.189401538
+   2   O     8.00    0.000000000    0.000000000    0.892902351
+
+ Frequencies dumped to record   5400.2
+
+ Gradient norm at reference geometry: 0.86406D-05
+
+ Normal Modes
+
+                              1 A1 
+ Wavenumbers [cm-1]         2425.88
+ Intensities [km/mol]        144.43
+ Intensities [relative]      100.00
+           CX1              0.00000
+           CY1              0.00000
+           CZ1              0.21807
+           OX2              0.00000
+           OY2              0.00000
+           OZ2             -0.16371
+
+
+ Normal Modes of low/zero frequencies
+
+                                  1           2           3           4           5
+ Wavenumbers [cm-1]            0.00        0.00        0.00        0.00        0.00
+ Intensities [km/mol]          0.00        0.00        0.00        0.00        0.00
+ Intensities [relative]        0.00        0.00        0.00        0.00        0.00
+           CX1              0.00000     0.27846    -0.00000    -0.00000    -0.07562
+           CY1              0.00000     0.00000     0.20403     0.20403    -0.00000
+           CZ1              0.18895     0.00000     0.00000     0.00000     0.00000
+           OX2              0.00000     0.06552     0.00000     0.00000     0.24127
+           OY2              0.00000     0.00000     0.17678    -0.17678     0.00000
+           OZ2              0.18895     0.00000     0.00000     0.00000     0.00000
+
+
+ Zero point energy:  0.00552657 [H]     1212.94 [1/CM]       14.51 [KJ/MOL]
+ Frequency information read from record  5400.2
+
+        HF-SCF          OPTG(HF)        HF-SCF  
+   -112.79106567   -112.79106567   -112.53425529
+ **********************************************************************************************************************************
+ Variable memory released
