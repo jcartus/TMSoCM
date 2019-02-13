@@ -47,7 +47,7 @@ state,2
 }
 
 
-! Gleichen states verfeirenern mit mrci
+! Gleiche states verfeinern mit mrci
 {mrci,
 !occ, 6, 2, 2, 0
 !closed, 2, 0, 0, 0
